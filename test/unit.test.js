@@ -1,13 +1,13 @@
 import { expect, test } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { defineComponent } from 'vue'
-import AddProfile from '../src/components/AddProfile.vue'
+import Users from '../src/components/Users.vue'
 
 test('Button click calls addUser', async () => {
   let isAddUserCalled = false
 
   const TestComponent = defineComponent({
-    extends: AddProfile,
+    extends: Users,
     methods: {
       addUser() {
         isAddUserCalled = true
