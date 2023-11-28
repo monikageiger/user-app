@@ -10,6 +10,7 @@ const users = {
     },
     getters: {
         getUsers(state) {
+            console.log('state.users', state.users)
             return state.users
         },
     },
@@ -45,6 +46,7 @@ const users = {
             state.addMoreUsersNumber++
         },
         ADD_USER: (state, data) => {
+            console.log('data', data)
             state.users = [...state.users, ...data]
         },
         DELETE_USER: (state, data) => {

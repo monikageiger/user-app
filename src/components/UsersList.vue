@@ -1,8 +1,5 @@
 <template>
     <div>
-        <div @click="this.fetchUsers()">refetch</div>
-        <button @click="addUser()" data-test="submit-button">add user</button>
-
         <div class="container" v-if="users">
             <div v-for="(user, idx) in users" :key="idx" class="user">
                 <img
@@ -39,28 +36,18 @@
 import store from '../../store'
 
 export default {
-    data() {
-        return {
-            users: null,
-        }
-    },
     methods: {
-        async addUser() {
-            await store.dispatch('addUser')
-            this.users = store.getters.getUsers
-        },
-        async fetchUsers() {
-            await store.dispatch('getUsers')
-            this.users = store.getters.getUsers
-        },
         async deleteUser(user) {
             store.commit('DELETE_USER', { id: user.id.value })
-            this.users = store.getters.getUsers
         },
     },
     async mounted() {
-        await this.fetchUsers()
-        console.log('users', this.users)
+        await store.dispatch('getUsers')
+    },
+    computed: {
+        users() {
+            return store.getters.getUsers
+        },
     },
 }
 </script>

@@ -1,9 +1,13 @@
 <script setup>
-import Users from './components/Users.vue'
+import Header from './components/Header.vue'
+import Buttons from './components/Buttons.vue'
+import UsersList from './components/UsersList.vue'
 </script>
 
 <template>
-    <Users />
+    <Header />
+    <Buttons />
+    <UsersList />
 </template>
 
 <style scoped>
