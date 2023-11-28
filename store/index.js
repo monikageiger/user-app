@@ -44,8 +44,7 @@ const users = {
             state.addMoreUsersNumber++
         },
         ADD_USER: (state, data) => {
-            console.log('data', data)
-            state.users = [...state.users, ...data]
+            state.users = [...data, ...state.users]
         },
         DELETE_USER: (state, data) => {
             state.users = state.users.filter((el) => {
