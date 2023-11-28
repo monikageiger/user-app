@@ -15,7 +15,7 @@ export default {
 <style scoped lang="scss">
 .header {
     &-title {
-        font-size: 40px;
+        font-size: 50px;
         text-transform: uppercase;
     }
 }

@@ -1,6 +1,9 @@
 <template>
     <div>
-        <div class="container" v-if="users">
+        <div v-if="!users" class="loader">
+            <img src="../assets/loading.gif" />
+        </div>
+        <div class="container">
             <div v-for="(user, idx) in users" :key="idx" class="user">
                 <img
                     @click="deleteUser(user)"
@@ -45,8 +48,8 @@ export default {
             userKeys: {
                 title: 'name.title',
                 gender: 'gender',
-                city: 'location.city',
                 DoB: 'dob.date',
+                city: 'location.city',
                 'postal code': 'location.postcode',
             },
         }
@@ -83,13 +86,10 @@ export default {
     box-sizing: border-box;
 }
 
-.note {
-    margin-top: 30px;
-    color: #fff;
-    font-size: 1rem;
-    font-family: 'Merriweather', sans-serif;
-    line-height: 1.5;
-    text-align: center;
+.loader {
+    img {
+        width: 100px;
+    }
 }
 .container {
     display: grid;
@@ -120,7 +120,7 @@ export default {
     &-picture {
         width: 100%;
         height: 200px;
-        border-radius: 8px;
+        border-radius: 8px 8px 0px 0px;
         overflow: hidden;
         display: flex;
         justify-content: center;
@@ -141,17 +141,20 @@ export default {
         padding: 4px 10px;
         background: #fca311;
         transition: 0.4s 0.15s cubic-bezier(0.17, 0.67, 0.5, 1.03);
-        color: black;
+        color: #14213d;
         z-index: 2;
         &-name {
             position: relative;
-            margin: 10px 0;
+            margin: 10px auto;
             letter-spacing: 3px;
-            color: #152536;
+            color: #14213d;
             font-size: 1em;
             text-transform: uppercase;
             font-weight: bold;
             font-family: sans-serif;
+            width: 80%;
+            overflow: hidden;
+            white-space: nowrap;
             transition: all 0.4s ease-in-out;
         }
         &-additionalContainer {
@@ -172,11 +175,10 @@ export default {
     }
     &:hover &-details {
         transform: translateY(-200px);
-        .details {
-            opacity: 1;
-        }
         &-name {
-            margin: 20px 0px;
+            overflow: unset;
+            white-space: unset;
+            width: 90%;
         }
     }
     &:hover &-delete {
