@@ -133,7 +133,8 @@ export default {
         &:hover {
             opacity: 1;
             z-index: 3;
-            filter: invert(1);
+            width: 30px;
+            height: 30px;
         }
     }
     &-picture {
@@ -158,13 +159,12 @@ export default {
         height: 300px;
         position: relative;
         padding: 4px 10px;
-        background: rgb(211, 211, 211);
+        background: rgb(242, 240, 239);
         background: linear-gradient(
-            0deg,
-            rgba(211, 211, 211, 1) 0%,
-            rgba(223, 228, 236, 1) 100%
+            207deg,
+            rgba(242, 240, 239, 1) 0%,
+            rgba(207, 192, 189, 1) 100%
         );
-
         transition: 0.4s 0.15s cubic-bezier(0.17, 0.67, 0.5, 1.03);
         color: #14213d;
         z-index: 2;
@@ -193,14 +193,12 @@ export default {
             gap: 10px;
             &-item {
                 display: flex;
-
                 gap: 10px;
                 &-title {
                     text-transform: capitalize;
-                    text-align: left;
                 }
                 &-value {
-                    text-align: right;
+                    white-space: nowrap;
                 }
             }
         }
