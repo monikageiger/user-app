@@ -94,13 +94,15 @@ export default {
     &-delete {
         cursor: pointer;
         position: absolute;
-        z-index: 3;
+        z-index: 0;
         width: 25px;
         height: 25px;
         right: 2px;
         top: 2px;
-        background-color: black;
+        background-color: #14213d;
         border-radius: 30px;
+        opacity: 0;
+        transition: all 0.4s ease-in-out;
     }
     &-picture {
         width: 100%;
@@ -145,7 +147,8 @@ export default {
         }
     }
     &:hover &-delete {
-        filter: invert(1);
+        opacity: 1;
+        z-index: 3;
     }
 }
 </style>
