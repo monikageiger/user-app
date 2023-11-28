@@ -13,14 +13,6 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-@font-face {
-    font-family: Roboto;
-    src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
-}
-@font-face {
-    font-family: Montserrat;
-    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
-}
 
 body {
     margin: 0;
@@ -28,7 +20,7 @@ body {
     place-items: center;
     min-width: 320px;
     min-height: 100vh;
-    font-family: Montserrat;
+
 }
 
 #app {

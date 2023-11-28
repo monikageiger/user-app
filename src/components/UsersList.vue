@@ -14,17 +14,21 @@
                     <h2 class="user-details-name">
                         {{ user.name.first }} {{ user.name.last }}
                     </h2>
-                    <div>title {{ user.name.title }}</div>
-                    <div>gender {{ user.gender }}</div>
-                    <div>city {{ user.location.city }}</div>
-                    <div>postal code {{ user.location.postcode }}</div>
-                    <div>
-                        dob
-                        {{
-                            new Date(user.dob.date)
-                                .toLocaleString()
-                                .split(',')[0]
-                        }}
+                    <div class="user-details-additionalContainer">
+                        <div
+                            class="user-details-additionalContainer-item"
+                            v-for="(value, key) in userKeys"
+                            :key="key"
+                        >
+                            <span
+                                class="user-details-additionalContainer-item-title"
+                                >{{ key }}</span
+                            >
+                            <span
+                                class="user-details-additionalContainer-item-value"
+                                >{{ getUserValue(value, user) }}</span
+                            >
+                        </div>
                     </div>
                 </div>
             </div>
@@ -36,9 +40,31 @@
 import store from '../../store'
 
 export default {
+    data() {
+        return {
+            userKeys: {
+                title: 'name.title',
+                gender: 'gender',
+                city: 'location.city',
+                DoB: 'dob.date',
+                'postal code': 'location.postcode',
+            },
+        }
+    },
     methods: {
         async deleteUser(user) {
             store.commit('DELETE_USER', { id: user.id.value })
+        },
+        getUserValue(path, obj) {
+            const steps = path.split('.')
+
+            for (let i = 0; i < steps.length; i++) {
+                obj = obj[steps[i]]
+            }
+            if (path === 'dob.date') {
+                return new Date(obj).toLocaleString().split(',')[0]
+            }
+            return obj
         },
     },
     async mounted() {
@@ -116,7 +142,6 @@ export default {
         background: #fca311;
         transition: 0.4s 0.15s cubic-bezier(0.17, 0.67, 0.5, 1.03);
         color: black;
-
         z-index: 2;
         &-name {
             position: relative;
@@ -125,12 +150,33 @@ export default {
             color: #152536;
             font-size: 1em;
             text-transform: uppercase;
+            font-weight: bold;
+            font-family: sans-serif;
+            transition: all 0.4s ease-in-out;
+        }
+        &-additionalContainer {
+            width: 80%;
+            margin: auto;
+            &-item {
+                display: flex;
+                justify-content: space-between;
+                &-title {
+                    text-transform: capitalize;
+                    text-align: left;
+                }
+                &-value {
+                    text-align: right;
+                }
+            }
         }
     }
     &:hover &-details {
         transform: translateY(-200px);
         .details {
             opacity: 1;
+        }
+        &-name {
+            margin: 20px 0px;
         }
     }
     &:hover &-delete {
