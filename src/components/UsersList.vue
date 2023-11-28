@@ -23,10 +23,11 @@
                             v-for="(value, key) in userKeys"
                             :key="key"
                         >
-                            <span
-                                class="user-details-additionalContainer-item-title"
-                                >{{ key }}</span
-                            >
+                            <img
+                                style="width: 25px; height: 25px"
+                                :src="pictures[key]"
+                                alt="reload users"
+                            />
                             <span
                                 class="user-details-additionalContainer-item-value"
                                 >{{ getUserValue(value, user) }}</span
@@ -41,10 +42,23 @@
 
 <script>
 import store from '../../store'
+import gender from '../assets/gender.svg'
+import title from '../assets/title.svg'
+import DoB from '../assets/DoB.svg'
+import postalCode from '../assets/postalCode.svg'
+import city from '../assets/city.svg'
 
 export default {
     data() {
         return {
+            pictures: {
+                gender,
+                title: title,
+                DoB,
+                city,
+                'postal code': postalCode,
+            },
+            gender,
             userKeys: {
                 title: 'name.title',
                 gender: 'gender',
@@ -89,6 +103,7 @@ export default {
 .loader {
     img {
         width: 100px;
+        filter: invert(1);
     }
 }
 .container {
@@ -143,8 +158,12 @@ export default {
         height: 300px;
         position: relative;
         padding: 4px 10px;
-        background: rgb(211,211,211);
-        background: linear-gradient(0deg, rgba(211,211,211,1) 0%, rgba(223,228,236,1) 100%);
+        background: rgb(211, 211, 211);
+        background: linear-gradient(
+            0deg,
+            rgba(211, 211, 211, 1) 0%,
+            rgba(223, 228, 236, 1) 100%
+        );
 
         transition: 0.4s 0.15s cubic-bezier(0.17, 0.67, 0.5, 1.03);
         color: #14213d;
@@ -164,13 +183,18 @@ export default {
             transition: all 0.4s ease-in-out;
             align-items: center;
             justify-content: center;
+            text-align: center;
         }
         &-additionalContainer {
             width: 80%;
             margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
             &-item {
                 display: flex;
-                justify-content: space-between;
+
+                gap: 10px;
                 &-title {
                     text-transform: capitalize;
                     text-align: left;

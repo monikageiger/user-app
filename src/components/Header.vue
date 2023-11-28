@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-        <h2 class="header-title">Profiles overview</h2>
+        <div class="header-title">Profiles overview</div>
     </div>
 </template>
 
@@ -13,10 +13,17 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 .header {
     &-title {
         font-size: 50px;
-        color: black;
+        font-family: Poppins;
+        color: #364156;
+        text-transform: uppercase;
+        height: 30vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 </style>
