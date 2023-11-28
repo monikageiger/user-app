@@ -1,22 +1,15 @@
 <template>
-    <div>
-        hi
+    <div class="header">
+        <h2 class="header-title">Profiles overview</h2>
     </div>
 </template>
 
 <script>
-
-
 export default {
     data() {
-        return {
-     
-        }
+        return {}
     },
-
-
 }
 </script>
 
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>

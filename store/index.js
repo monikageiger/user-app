@@ -10,31 +10,29 @@ const users = {
     },
     getters: {
         getUsers(state) {
-            console.log('state.users', state.users)
             return state.users
         },
     },
     actions: {
-        async getUsers({ commit, rootGetters }) {
+        async getUsers({ commit, state }, payload) {
+            const additionalUsers = state.addMoreUsersNumber
+
             const res = await axios({
                 method: 'GET',
-                url: `https://randomuser.me/api/?exc=login&results=20`,
+                url: `https://randomuser.me/api/?exc=login&results=${
+                    payload && payload.moreUsers
+                        ? additionalUsers.toString()
+                        : '20'
+                }`,
             })
 
             if (res.data && !res.data.error) {
-                console.log('res.data.results', res.data.results)
-                commit('SET_USERS', res.data.results)
-            }
-        },
-        async addUser({ commit, state }) {
-            const res = await axios({
-                method: 'GET',
-                url: `https://randomuser.me/api/?exc=login&results=${state.addMoreUsersNumber}`,
-            })
-
-            if (res.data && !res.data.error) {
-                commit('ADD_USER', res.data.results)
-                commit('SET_ADD_MORE_USERS_NUMBER')
+                if (payload && payload.moreUsers) {
+                    commit('ADD_USER', res.data.results)
+                    commit('SET_ADD_MORE_USERS_NUMBER')
+                } else {
+                    commit('SET_USERS', res.data.results)
+                }
             }
         },
     },

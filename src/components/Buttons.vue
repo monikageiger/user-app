@@ -14,7 +14,7 @@ export default {
     },
     methods: {
         async addUser() {
-            await store.dispatch('addUser')
+            await store.dispatch('getUsers',{moreUsers:true})
         },
         async fetchUsers() {
             await store.dispatch('getUsers')
