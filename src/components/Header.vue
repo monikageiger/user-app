@@ -12,4 +12,11 @@ export default {
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.header {
+    &-title {
+        font-size: 40px;
+        text-transform: uppercase;
+    }
+}
+</style>
