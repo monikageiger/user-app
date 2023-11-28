@@ -1,11 +1,13 @@
-const express = require('express');
-const path = require('path');
-const app = express();
 
-app.use(express.static(path.resolve(__dirname, './dist')));
+import express from 'express';
+import path from 'path';
+
+const app = express()
+
+app.use(express.static(path.resolve(process.cwd(), './dist')));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, './dist/index.html'));
+  res.sendFile(path.resolve(process.cwd(), './dist/index.html'));
 });
 
 const PORT = process.env.PORT || 3000;
