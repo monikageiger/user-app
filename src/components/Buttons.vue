@@ -38,7 +38,7 @@ export default {
         cursor: pointer;
         background-color: transparent;
         border: 1px solid #fca311;
-        color: white;
+        color: black;
         padding: 15px 32px;
         margin: 10px;
         border-radius: 8px;

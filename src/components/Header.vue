@@ -16,7 +16,7 @@ export default {
 .header {
     &-title {
         font-size: 50px;
-        text-transform: uppercase;
+        color: black;
     }
 }
 </style>

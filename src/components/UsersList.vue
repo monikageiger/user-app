@@ -98,28 +98,32 @@ export default {
 }
 .user {
     width: 250px;
-    height: 250px;
+    height: 300px;
     border-radius: 8px;
     overflow: hidden;
     position: relative;
-    box-shadow: 5px 5px 15px 0px #000814;
-
+    box-shadow: 0px 10px 13px -7px #000814;
     &-delete {
         cursor: pointer;
         position: absolute;
-        z-index: 0;
-        width: 25px;
-        height: 25px;
-        right: 2px;
-        top: 2px;
-        background-color: #14213d;
+        z-index: 3;
+        width: 20px;
+        height: 20px;
+        right: 5px;
+        bottom: 5px;
+        filter: invert(0);
         border-radius: 30px;
-        opacity: 0;
+        opacity: 1;
         transition: all 0.4s ease-in-out;
+        &:hover {
+            opacity: 1;
+            z-index: 3;
+            filter: invert(1);
+        }
     }
     &-picture {
         width: 100%;
-        height: 200px;
+        height: 220px;
         border-radius: 8px 8px 0px 0px;
         overflow: hidden;
         display: flex;
@@ -139,13 +143,15 @@ export default {
         height: 300px;
         position: relative;
         padding: 4px 10px;
-        background: #fca311;
+        background: rgb(211,211,211);
+        background: linear-gradient(0deg, rgba(211,211,211,1) 0%, rgba(223,228,236,1) 100%);
+
         transition: 0.4s 0.15s cubic-bezier(0.17, 0.67, 0.5, 1.03);
         color: #14213d;
         z-index: 2;
         &-name {
             position: relative;
-            margin: 10px auto;
+            margin: 6px auto 10px;
             letter-spacing: 3px;
             color: #14213d;
             font-size: 1em;
@@ -153,9 +159,11 @@ export default {
             font-weight: bold;
             font-family: sans-serif;
             width: 80%;
-            overflow: hidden;
-            white-space: nowrap;
+            height: 20%;
+            display: flex;
             transition: all 0.4s ease-in-out;
+            align-items: center;
+            justify-content: center;
         }
         &-additionalContainer {
             width: 80%;
@@ -174,16 +182,12 @@ export default {
         }
     }
     &:hover &-details {
-        transform: translateY(-200px);
+        transform: translateY(-220px);
         &-name {
             overflow: unset;
             white-space: unset;
             width: 90%;
         }
-    }
-    &:hover &-delete {
-        opacity: 1;
-        z-index: 3;
     }
 }
 </style>

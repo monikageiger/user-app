@@ -5,14 +5,14 @@
 
     color-scheme: light dark;
     color: rgba(255, 255, 255, 0.87);
-    background-color: #14213d;
-
-    font-synthesis: none;
+    background-image: url("../src/assets/5594016.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-synthesis: none;background-size: cover;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
 
 body {
     margin: 0;
@@ -20,7 +20,6 @@ body {
     place-items: center;
     min-width: 320px;
     min-height: 100vh;
-
 }
 
 #app {
