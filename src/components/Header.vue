@@ -25,5 +25,11 @@ export default {
         align-items: center;
         justify-content: center;
     }
+    @media screen and (max-width: 900px) {
+       &-title {
+        height: 15vh;
+        margin-top: 20px;
+       }
+    }
 }
 </style>

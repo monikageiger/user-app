@@ -14,7 +14,7 @@
         </div>
         <div class="container-button">
             <img
-            data-test="submit-button"
+                data-test="submit-button"
                 class="container-button-icon"
                 @click="addUser()"
                 src="../assets/add.svg"
@@ -56,7 +56,6 @@ export default {
     top: 0px;
     left: 0px;
     display: flex;
-
     &-button {
         position: relative;
         display: inline-block;
@@ -98,6 +97,13 @@ export default {
                 filter: invert(1);
             }
         }
+    }
+    @media screen and (max-width: 900px) {
+        position: fixed;
+        margin: 0px;
+        width: 100%;
+        background-color: rgb(242, 240, 239);
+        z-index: 10;
     }
 }
 </style>
