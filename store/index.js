@@ -17,17 +17,18 @@ const users = {
         async getUsers({ commit, rootGetters }) {
             const res = await axios({
                 method: 'GET',
-                url: `https://randomuser.me/api/?inc=name,picture,id&results=20`,
+                url: `https://randomuser.me/api/?exc=login&results=20`,
             })
 
             if (res.data && !res.data.error) {
+                console.log('res.data.results', res.data.results)
                 commit('SET_USERS', res.data.results)
             }
         },
         async addUser({ commit, state }) {
             const res = await axios({
                 method: 'GET',
-                url: `https://randomuser.me/api/?inc=name,picture,id&results=${state.addMoreUsersNumber}`,
+                url: `https://randomuser.me/api/?exc=login&results=${state.addMoreUsersNumber}`,
             })
 
             if (res.data && !res.data.error) {
