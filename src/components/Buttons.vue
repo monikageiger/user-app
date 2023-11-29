@@ -6,7 +6,7 @@
         <div class="container-button">
             <img
                 class="container-button-icon"
-                @click="this.fetchUsers()"
+                @click="fetchUsers()"
                 src="../assets/reload.svg"
                 alt="reload users"
             />

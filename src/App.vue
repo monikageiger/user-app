@@ -5,14 +5,22 @@ import UsersList from './components/UsersList.vue'
 </script>
 
 <template>
+    <div class="background"></div>
     <Header />
     <Buttons />
     <UsersList />
 </template>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;800&display=swap');
-* {
-    font-family: Roboto, sans-serif;
+
+.background {
+    background-image: url('../src/assets/background.jpg');
+    position: fixed;
+    filter: blur(7px);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
 }
 </style>

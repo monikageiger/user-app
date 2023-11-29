@@ -96,6 +96,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@500&display=swap');
 * {
     box-sizing: border-box;
 }
@@ -107,25 +108,28 @@ export default {
     }
 }
 .userList {
+
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 50px;
 
     &-item {
         width: 250px;
-        height: 300px;
+        height: 330px;
         border-radius: 8px;
         overflow: hidden;
         position: relative;
-        box-shadow: 0px 10px 13px -7px #000814;
+        box-shadow:  0px 1px 17px -8px #4a5759;
+        transition: all 0.4s ease-in-out;
+        background-color: rgb(255, 255, 255, 0.7);
         &-delete {
             cursor: pointer;
             position: absolute;
             z-index: 3;
             width: 20px;
             height: 20px;
-            right: 5px;
-            bottom: 5px;
+            right: 10px;
+            bottom: 10px;
             filter: invert(0);
             border-radius: 30px;
             opacity: 1;
@@ -139,8 +143,7 @@ export default {
         }
         &-picture {
             width: 100%;
-            height: 220px;
-            border-radius: 8px 8px 0px 0px;
+            height: 245px;
             overflow: hidden;
             display: flex;
             justify-content: center;
@@ -149,9 +152,13 @@ export default {
             background-position: center;
             background-size: contain;
             margin: auto;
+
             img {
-                width: 100%;
+                opacity: 1;
+                transition: all 0.4s ease-in-out;
+                width: 85%;
                 position: relative;
+         
             }
         }
         &-details {
@@ -159,24 +166,22 @@ export default {
             height: 300px;
             position: relative;
             padding: 4px 10px;
-            background: rgb(242, 240, 239);
-            background: linear-gradient(
-                207deg,
-                rgba(242, 240, 239, 1) 0%,
-                rgba(207, 192, 189, 1) 100%
-            );
             transition: 0.4s 0.15s cubic-bezier(0.17, 0.67, 0.5, 1.03);
             color: #14213d;
+            background: transparent;
             z-index: 2;
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 500;
             &-name {
                 position: relative;
-                margin: 6px auto 10px;
+                margin:0px auto 20px;
                 letter-spacing: 3px;
                 color: #14213d;
                 font-size: 1em;
                 text-transform: uppercase;
                 font-weight: bold;
-                font-family: sans-serif;
+                font-family: 'Source Sans 3', sans-serif;
+                font-weight: 800;
                 width: 80%;
                 height: 20%;
                 display: flex;
@@ -203,12 +208,20 @@ export default {
                 }
             }
         }
+        &:hover {
+            box-shadow: rgba(0, 0, 0, 0.3) 1.95px 1.95px 12.6px;
+        }
         &:hover &-details {
             transform: translateY(-220px);
             &-name {
                 overflow: unset;
                 white-space: unset;
                 width: 90%;
+            }
+        }
+        &:hover &-picture {
+            img {
+                opacity: 0;
             }
         }
     }
@@ -226,7 +239,7 @@ export default {
                 width: 100%;
                 height: 260px;
             }
-            &-delete{
+            &-delete {
                 width: 30px;
                 height: 30px;
             }

@@ -24,6 +24,8 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
+        font-family: 'Source Sans 3', sans-serif;
+        font-weight: 900;
     }
     @media screen and (max-width: 900px) {
        &-title {

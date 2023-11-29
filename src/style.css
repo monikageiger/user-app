@@ -5,9 +5,12 @@
 
     color-scheme: light dark;
     color: rgba(255, 255, 255, 0.87);
-    background-image: url('../src/assets/background.jpg');
+
+background-color: white;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    
+    
     font-synthesis: none;
 
     text-rendering: optimizeLegibility;
@@ -29,3 +32,12 @@ body {
     max-width: 1280px;
     margin: 0 auto;
 }
+
+@font-face {
+    font-family: "Roboto";
+    font-weight: 400;
+    font-style: normal;
+    font-display: auto;
+    unicode-range: U+000-5FF;
+    src: local("Roboto"), url("/fonts/Roboto/Roboto-Regular.woff2") format("woff2"), url("/fonts/Roboto/Roboto-Regular.woff") format("woff");
+  }
