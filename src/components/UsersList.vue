@@ -18,19 +18,19 @@
                         <hr />
                     </h2>
 
-                    <div class="userList-item-details-additionalContainer">
+                    <div class="userList-item-details-hiddenContainer">
                         <div
-                            class="userList-item-details-additionalContainer-item"
+                            class="userList-item-details-hiddenContainer-item"
                             v-for="(value, key) in userKeys"
                             :key="key"
                         >
                             <img
-                                class="userList-item-details-additionalContainer-item-title"
+                                class="userList-item-details-hiddenContainer-item-title"
                                 :src="pictures[key]"
                                 alt="reload users"
                             />
                             <span
-                                class="userList-item-details-additionalContainer-item-value"
+                                class="userList-item-details-hiddenContainer-item-value"
                                 >{{ getUserValue(value, user) }}</span
                             >
                         </div>
@@ -48,8 +48,8 @@ import title from '../assets/title.svg'
 import DoB from '../assets/DoB.svg'
 import postalCode from '../assets/postalCode.svg'
 import city from '../assets/city.svg'
-import Loader from './Loader.vue'
-import NoUsers from './NoUsers.vue'
+import Loader from './global/Loader.vue'
+import NoUsers from './global/NoUsers.vue'
 
 export default {
     components: {
@@ -193,7 +193,7 @@ export default {
                     border: 1px solid #364156;
                 }
             }
-            &-additionalContainer {
+            &-hiddenContainer {
                 margin-left: 20%;
                 display: flex;
                 flex-direction: column;
@@ -250,7 +250,7 @@ export default {
                     font-size: 1.1em;
                 }
                 font-size: 1.3em;
-                &-additionalContainer {
+                &-hiddenContainer {
                     padding-top: 10px;
                 }
             }
