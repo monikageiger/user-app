@@ -7,7 +7,7 @@
                 <img
                     @click="deleteUser(user)"
                     class="userList-item-delete"
-                    src="../assets/deleteIcon.svg"
+                    :src="DeleteIcon"
                 />
                 <div class="userList-item-picture">
                     <img :src="user.picture.large || ''" alt="" />
@@ -48,8 +48,9 @@ import title from '../assets/icons/title.svg'
 import DoB from '../assets/icons/DoB.svg'
 import postalCode from '../assets/icons/postalCode.svg'
 import city from '../assets/icons/city.svg'
-import Loader from './global/Loader.vue'
+import DeleteIcon from '../assets/icons/deleteIcon.svg'
 import NoUsers from './global/NoUsers.vue'
+import Loader from './global/Loader.vue'
 
 export default {
     components: {
@@ -58,6 +59,7 @@ export default {
     },
     data() {
         return {
+            DeleteIcon,
             pictures: {
                 gender,
                 title: title,
