@@ -300,14 +300,13 @@ export default {
         &-item {
             width: 80vw;
             height: 360px;
-            &-details{
+            &-details {
                 &-name {
                     font-size: 1em;
                 }
                 font-size: 1.1em;
             }
             &-picture {
-                width: 100%;
                 height: 260px;
                 img {
                     opacity: 1;
