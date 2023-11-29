@@ -1,8 +1,7 @@
 <template>
     <div>
-        <div v-if="!users" class="loader">
-            <img src="../assets/loading.gif" />
-        </div>
+        <Loader v-if="!users" />
+        <NoUsers v-else-if="!users.length" />
         <div class="userList">
             <div v-for="(user, idx) in users" :key="idx" class="userList-item">
                 <img
@@ -49,8 +48,13 @@ import title from '../assets/title.svg'
 import DoB from '../assets/DoB.svg'
 import postalCode from '../assets/postalCode.svg'
 import city from '../assets/city.svg'
+import Loader from './Loader.vue'
+import NoUsers from './NoUsers.vue'
 
 export default {
+    components: {
+        Loader,NoUsers
+    },
     data() {
         return {
             pictures: {
@@ -101,20 +105,6 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@500&display=swap');
 * {
     box-sizing: border-box;
-}
-
-.loader {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    img {
-        width: 100px;
-        filter: invert(1);
-    }
-    @media screen and (max-width: 900px) {
-        height: 100vh;
-    }
 }
 .userList {
     display: grid;
@@ -172,7 +162,7 @@ export default {
             position: relative;
             padding: 4px 10px;
             transition: 0.4s 0.15s cubic-bezier(0.17, 0.67, 0.5, 1.03);
-            color: #14213d;
+            color: #364156;
             background: transparent;
             z-index: 2;
             font-family: 'Source Sans 3', sans-serif;
@@ -200,7 +190,7 @@ export default {
                     margin-top: 0px;
                     width: 0%;
                     opacity: 0;
-                    border: 1px solid #14213d;
+                    border: 1px solid #364156;
                 }
             }
             &-additionalContainer {

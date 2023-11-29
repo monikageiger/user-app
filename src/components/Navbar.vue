@@ -1,7 +1,6 @@
 <template>
     <div class="navBar">
         <div class="navBar-title">Polaroids</div>
-
         <div class="navBar-buttons">
             <div
                 class="navBar-buttons-item"
@@ -121,6 +120,7 @@ export default {
         justify-content: space-between;
         display: flex;
         position: fixed;
+        width: 100%;
         top: 0;
         left: 50%;
         transform: translateX(-50%);
@@ -137,7 +137,6 @@ export default {
     }
     @media screen and (max-width: 490px) {
         box-shadow: 0px 1px 17px -8px #4a5759;
-        width: 100vw;
         &-title {
             font-size: 2em;
         }
