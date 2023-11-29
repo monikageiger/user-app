@@ -23,9 +23,10 @@
 </template>
 
 <script>
-import store from '../../store'
-import add from '../assets/add.svg'
-import reload from '../assets/reload.svg'
+import store from '/store'
+import add from '../assets/navbar/add.svg'
+import reload from '../assets/navbar/reload.svg'
+
 export default {
     data() {
         return {
