@@ -98,7 +98,7 @@ export default {
                 height: 20px;
                 cursor: pointer;
                 background-color: white;
-                border: 2px solid black;
+                border: 2px solid #364156;
                 padding: 10px;
                 margin: 10px;
                 border-radius: 30px;

@@ -225,7 +225,7 @@ export default {
                 hr {
                     margin-top: 0px;
                     width: 50%;
-                    border: 1px solid #14213d;
+                    border: 1px solid #364156;
                     opacity: 1;
                 }
             }

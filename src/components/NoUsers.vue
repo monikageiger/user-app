@@ -1,5 +1,5 @@
 <template>
-    <div class="loader">
+    <div class="noUser">
         <div>
             No users yet.
             <span @click="addUser">Add here</span>
@@ -17,8 +17,8 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-.loader {
-    color: black;
+.noUser {
+    color: #364156;
     display: grid;
     justify-items: center;
     align-items: center;
