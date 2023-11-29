@@ -42,18 +42,19 @@
 </template>
 
 <script>
-import store from '../../store'
-import gender from '../assets/gender.svg'
-import title from '../assets/title.svg'
-import DoB from '../assets/DoB.svg'
-import postalCode from '../assets/postalCode.svg'
-import city from '../assets/city.svg'
+import store from '/store'
+import gender from '../assets/icons/gender.svg'
+import title from '../assets/icons/title.svg'
+import DoB from '../assets/icons/DoB.svg'
+import postalCode from '../assets/icons/postalCode.svg'
+import city from '../assets/icons/city.svg'
 import Loader from './global/Loader.vue'
 import NoUsers from './global/NoUsers.vue'
 
 export default {
     components: {
-        Loader,NoUsers
+        Loader,
+        NoUsers,
     },
     data() {
         return {
