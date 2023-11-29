@@ -4,7 +4,7 @@
 
 <style scoped>
 .background {
-    background-image: url('../src/assets/background.jpg');
+    background-image: url('../assets/background.jpg');
     position: fixed;
     filter: blur(7px);
     top: 0;
