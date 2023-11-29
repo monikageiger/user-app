@@ -1,13 +1,13 @@
 import { expect, test } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { defineComponent } from 'vue'
-import Buttons from '../src/components/Buttons.vue'
+import Navbar from '../src/components/Navbar.vue'
 
 test('Button click calls addUser', async () => {
   let isAddUserCalled = false
 
   const TestComponent = defineComponent({
-    extends: Buttons,
+    extends: Navbar,
     methods: {
       addUser() {
         isAddUserCalled = true

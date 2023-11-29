@@ -15,8 +15,10 @@
                 </div>
                 <div class="userList-item-details">
                     <h2 class="userList-item-details-name">
-                        {{ user.name.first }} {{ user.name.last }}
+                        <p>{{ user.name.first }} {{ user.name.last }}</p>
+                        <hr />
                     </h2>
+
                     <div class="userList-item-details-additionalContainer">
                         <div
                             class="userList-item-details-additionalContainer-item"
@@ -24,7 +26,7 @@
                             :key="key"
                         >
                             <img
-                                style="width: 25px; height: 25px"
+                                class="userList-item-details-additionalContainer-item-title"
                                 :src="pictures[key]"
                                 alt="reload users"
                             />
@@ -102,24 +104,29 @@ export default {
 }
 
 .loader {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     img {
         width: 100px;
         filter: invert(1);
     }
+    @media screen and (max-width: 900px) {
+        height: 100vh;
+    }
 }
 .userList {
-
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 50px;
-
     &-item {
         width: 250px;
         height: 330px;
         border-radius: 8px;
         overflow: hidden;
         position: relative;
-        box-shadow:  0px 1px 17px -8px #4a5759;
+        box-shadow: 0px 1px 17px -8px #4a5759;
         transition: all 0.4s ease-in-out;
         background-color: rgb(255, 255, 255, 0.7);
         &-delete {
@@ -152,13 +159,11 @@ export default {
             background-position: center;
             background-size: contain;
             margin: auto;
-
             img {
                 opacity: 1;
                 transition: all 0.4s ease-in-out;
                 width: 85%;
                 position: relative;
-         
             }
         }
         &-details {
@@ -174,7 +179,7 @@ export default {
             font-weight: 500;
             &-name {
                 position: relative;
-                margin:0px auto 20px;
+                margin: 0px auto 20px;
                 letter-spacing: 3px;
                 color: #14213d;
                 font-size: 1em;
@@ -185,24 +190,34 @@ export default {
                 width: 80%;
                 height: 20%;
                 display: flex;
+                flex-direction: column;
                 transition: all 0.4s ease-in-out;
                 align-items: center;
                 justify-content: center;
                 text-align: center;
+                hr {
+                    transition: all 0.9s ease-in-out;
+                    margin-top: 0px;
+                    width: 0%;
+                    opacity: 0;
+                    border: 1px solid #14213d;
+                }
             }
             &-additionalContainer {
-                width: 80%;
-                margin: auto;
+                margin-left: 20%;
                 display: flex;
                 flex-direction: column;
-                gap: 10px;
+                gap: 15px;
                 &-item {
                     display: flex;
-                    gap: 10px;
+                    gap: 25px;
                     &-title {
-                        text-transform: capitalize;
+                        width: 23px;
+                        height: 23px;
                     }
                     &-value {
+                        width: 60%;
+                        overflow: hidden;
                         white-space: nowrap;
                     }
                 }
@@ -217,6 +232,12 @@ export default {
                 overflow: unset;
                 white-space: unset;
                 width: 90%;
+                hr {
+                    margin-top: 0px;
+                    width: 50%;
+                    border: 1px solid #14213d;
+                    opacity: 1;
+                }
             }
         }
         &:hover &-picture {
@@ -226,30 +247,77 @@ export default {
         }
     }
     @media screen and (max-width: 900px) {
-        grid-template-columns: unset;
+        grid-template-columns: repeat(2, 1fr);
         justify-items: center;
+        margin-top: 15vw;
         &-item {
-            width: 360px;
-            height: 360px;
+            width: 340px;
+            height: 430px;
             &-details {
                 width: auto;
                 height: 390px;
+                &-name {
+                    font-size: 1.1em;
+                }
+                font-size: 1.3em;
+                &-additionalContainer {
+                    padding-top: 10px;
+                }
             }
             &-picture {
                 width: 100%;
-                height: 260px;
+                height: 340px;
+                img {
+                    opacity: 1;
+                    transition: all 0.4s ease-in-out;
+                    width: 85%;
+                    position: relative;
+                }
             }
             &-delete {
                 width: 30px;
                 height: 30px;
             }
             &:hover &-details {
-                transform: translateY(-260px);
+                transform: translateY(-340px);
                 &-name {
                     overflow: unset;
                     white-space: unset;
                     width: 90%;
+                    margin-top: 40px;
                 }
+            }
+        }
+    }
+    @media screen and (max-width: 778px) {
+        grid-template-columns: unset;
+    }
+    @media screen and (max-width: 490px) {
+        margin-top: 25vw;
+    }
+    @media screen and (max-width: 366px) {
+        margin-top: 35vw;
+        &-item {
+            width: 80vw;
+            height: 360px;
+            &-details{
+                &-name {
+                    font-size: 1em;
+                }
+                font-size: 1.1em;
+            }
+            &-picture {
+                width: 100%;
+                height: 260px;
+                img {
+                    opacity: 1;
+                    transition: all 0.4s ease-in-out;
+                    width: 85%;
+                    position: relative;
+                }
+            }
+            &:hover &-details {
+                transform: translateY(-290px);
             }
         }
     }

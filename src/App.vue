@@ -1,18 +1,15 @@
 <script setup>
-import Header from './components/Header.vue'
-import Buttons from './components/Buttons.vue'
+import Navbar from './components/Navbar.vue'
 import UsersList from './components/UsersList.vue'
 </script>
 
 <template>
     <div class="background"></div>
-    <Header />
-    <Buttons />
+    <Navbar />
     <UsersList />
 </template>
 
 <style scoped>
-
 .background {
     background-image: url('../src/assets/background.jpg');
     position: fixed;
@@ -23,4 +20,5 @@ import UsersList from './components/UsersList.vue'
     height: 100vh;
     z-index: -1;
 }
+
 </style>
